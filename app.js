@@ -21,7 +21,7 @@ var app = express();
 var mongoose = require('mongoose');
 
 // Set up mongoose connection
-var dev_db_url = 'mongodb+srv://admin:123@cluster0.konem.mongodb.net/local_library?retryWrites=true&w=majority'
+var dev_db_url = 'mongodb+srv://admin:123@cluster0-mbdj7.mongodb.net/local_library?retryWrites=true'
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 //Get the default connection
 var db = mongoose.connection;
