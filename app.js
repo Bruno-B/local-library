@@ -11,22 +11,21 @@ var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" 
 var compression = require('compression');
 var helmet = require('helmet');
 
-require('dotenv/config')
 
 
 var app = express();
 
 
+
 //Import the mongoose module
 var mongoose = require('mongoose');
 
-// Set up mongoose connection
-var dev_db_url = 'mongodb+srv://admin:123@cluster0-mbdj7.mongodb.net/local_library?retryWrites=true'
+//Set up mongoose connection
+var dev_db_url = 'mongodb+srv://admin:123@cluster0.konem.mongodb.net/local_library?retryWrites=true&w=majority'
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
-//Get the default connection
-var db = mongoose.connection;
 
-//Bind connection to error event (to get notification of connection errors)
+mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
+var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
